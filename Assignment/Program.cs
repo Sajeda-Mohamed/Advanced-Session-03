@@ -38,11 +38,11 @@ namespace Assignment
             }
             return keyOfmax;
         }
-        static void TargetValue(Hashtable Hash,string target)
+        static void TargetValue(Hashtable Hash, string target)
         {
             foreach (DictionaryEntry item in Hash)
             {
-                if(item.Value == target)
+                if (item.Value == target)
                     Console.WriteLine(item.Key);
             }
         }
@@ -57,16 +57,16 @@ namespace Assignment
                     if (arr[j] == arr[i])
                         count++;
                 }
-                if(count > 1)
+                if (count > 1)
                 {
                     if (list.Add(arr[i]))
                         Console.WriteLine($"The item is {arr[i]} :: Freqyuency is [{count}]");
-                }                   
+                }
             }
         }
-        static void AddStudent(SortedDictionary<int,string> students,int id,string name)
+        static void AddStudent(SortedDictionary<int, string> students, int id, string name)
         {
-            if(!students.ContainsKey(id))
+            if (!students.ContainsKey(id))
             {
                 students.Add(id, name);
                 Console.WriteLine($"{name} added");
@@ -78,7 +78,7 @@ namespace Assignment
         {
             return students.TryGetValue(id, out string name) ? name : "Not found";
         }
-        static void RemoveStudents(SortedDictionary<int, string> students,int id)
+        static void RemoveStudents(SortedDictionary<int, string> students, int id)
         {
             foreach (var item in students)
             {
@@ -174,11 +174,28 @@ namespace Assignment
             #endregion
 
             #region Q08-Missing Numbers
-            int[] Numbers = { 1, 2, 4, 6, 7, 9 };
-            HashSet<int> Nums = FindMissingNums(Numbers,20);
-            foreach (int item in Nums)
+            //int[] Numbers = { 1, 2, 4, 6, 7, 9 };
+            //HashSet<int> Nums = FindMissingNums(Numbers,20);
+            //foreach (int item in Nums)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            #endregion
+
+            #region Q09-Unique Values
+            List<int> Ints = new List<int>();
+            HashSet<int> Numbers = new HashSet<int>();
+            Ints.Add(1);
+            Ints.Add(1);
+            Ints.Add(2);
+            foreach (int item in Ints)
             {
-                Console.WriteLine(item);
+                Numbers.Add(item);
+            }
+            foreach (var item in Numbers)
+            {
+                if (Ints is not null)
+                    Console.WriteLine(item);
             }
             #endregion
             #endregion
