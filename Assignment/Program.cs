@@ -124,7 +124,28 @@ namespace Assignment
             }
             return result;
         }
-
+        static string CountKeys(Dictionary<string,int> table, char c)
+        {
+            int count = 0;
+            if (table != null)
+            {
+                foreach (KeyValuePair<string, int> item in table)
+                {
+                    char[] Checked = item.Key.ToCharArray();
+                    if (c != null)
+                    {
+                        for (int i = 0; i < 1; i++)
+                        {
+                            if (Checked[0] == c)
+                            {
+                                count++;
+                            }
+                        }
+                    }
+                }
+            }
+            return $"Frequency of {c} in the first place of the Keyword is {count}";
+        }
         static void Main(string[] args)
         {
             #region Part1
@@ -225,21 +246,29 @@ namespace Assignment
             #endregion
 
             #region Q11-Union of 2 Sets
-            HashSet<int> UnionSet= new HashSet<int>();
-            int[] arr1 = { 1, 2, 3, 4, 5 };
-            int[] arr2 = { 3, 4, 5, 6, 7 };
-            foreach (int item in arr1)
-            {
-                UnionSet.Add(item);
-            }
-            foreach (int item in arr2)
-            {
-                UnionSet.Add(item);
-            }
-            foreach (int item in UnionSet)
-            {
-                Console.WriteLine(item);
-            }
+            //HashSet<int> UnionSet= new HashSet<int>();
+            //int[] arr1 = { 1, 2, 3, 4, 5 };
+            //int[] arr2 = { 3, 4, 5, 6, 7 };
+            //foreach (int item in arr1)
+            //{
+            //    UnionSet.Add(item);
+            //}
+            //foreach (int item in arr2)
+            //{
+            //    UnionSet.Add(item);
+            //}
+            //foreach (int item in UnionSet)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            #endregion
+
+            #region Q12-Dictionary TargetChar
+            Dictionary<string, int> dictionary = new Dictionary<string, int>();
+            dictionary.Add("apple", 1);
+            dictionary.Add("animal", 2);
+            dictionary.Add("airport", 3);
+            Console.WriteLine(CountKeys(dictionary,'a'));
             #endregion
             #endregion
         }
