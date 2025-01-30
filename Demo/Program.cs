@@ -50,7 +50,7 @@ namespace Demo
             #endregion
 
             #region Genaric Collection [Sorted Dictionary]
-            SortedDictionary<string, int> Note = new SortedDictionary<string, int>(new StringSortedDictionary());
+            //SortedDictionary<string, int> Note = new SortedDictionary<string, int>(new StringSortedDictionary());
 
             //Note.Add("Sajeda", 111);
             //Note.Add("Nada", 222);
@@ -59,15 +59,37 @@ namespace Demo
             //{
             //    Console.WriteLine($"{i.Key} ::: {i.Value}");
             //}
-            SortedDictionary<Employee, string> Employees = new SortedDictionary<Employee, string>(new EmployeeCompareAsc());
-            Employees.Add(new Employee(10, "Sajeda", 8000),"10,Sajeda,8000");
-            Employees.Add(new Employee(20, "Nada", 5000), "20, Nada, 5000");
-            Employees.Add(new Employee(30, "Eman", 6000), "30, Eman, 6000");
+            //SortedDictionary<Employee, string> Employees = new SortedDictionary<Employee, string>(new EmployeeCompareAsc());
+            //Employees.Add(new Employee(10, "Sajeda", 8000),"10,Sajeda,8000");
+            //Employees.Add(new Employee(20, "Nada", 5000), "20, Nada, 5000");
+            //Employees.Add(new Employee(30, "Eman", 6000), "30, Eman, 6000");
 
-            foreach (KeyValuePair<Employee,string> emp in Employees)
-            {
-                Console.WriteLine($"{emp.Key}");
-            }
+            //foreach (KeyValuePair<Employee,string> emp in Employees)
+            //{
+            //    Console.WriteLine($"{emp.Key}");
+            //}
+            #endregion
+
+            #region Genaric Collection [HashSet]
+            //HashSet<int> Numbers = new HashSet<int>();
+            //Numbers.Add(1);
+            //Numbers.Add(2);
+            //Numbers.Add(3);
+            //foreach (int item in Numbers)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            //HashSet<Movies> movies = new HashSet<Movies>();
+            //movies.Add(new Movies(101, "Avatar", 250));
+            //movies.Add(new Movies(202, "Mission Impossible", 350));
+            //movies.Add(new Movies(202, "Mission Impossible", 350));
+            //movies.Add(new Movies(303, "Harry Potter", 150));
+
+            //foreach (Movies movie in movies)
+            //{
+            //    Console.WriteLine(movie);
+            //}
             #endregion
         }
     }
