@@ -45,6 +45,24 @@ namespace Assignment
                     Console.WriteLine(item.Key);
             }
         }
+        static void CheckDuplicates(int[] arr)
+        {
+            HashSet<int> list = new HashSet<int>();
+            for (int i = 0; i < arr.Length; i++)
+            {
+                int count = 0;
+                for (int j = 0; j < arr.Length; j++)
+                {
+                    if (arr[j] == arr[i])
+                        count++;
+                }
+                if(count > 1)
+                {
+                    if (list.Add(arr[i]))
+                        Console.WriteLine($"The item is {arr[i]} :: Freqyuency is [{count}]");
+                }                   
+            }
+        }
         static void Main(string[] args)
         {
             #region Part1
@@ -69,12 +87,17 @@ namespace Assignment
             //Console.WriteLine(FindHighestValue(NoteBook));
             #endregion
 
-            #region Specific targetValue
-            Hashtable Fruits = new Hashtable();
-            Fruits.Add("Key1", "Apple");
-            Fruits.Add("Key2", "Banana");
-            Fruits.Add("Key3", "Apple");
-            TargetValue(Fruits,"Apple");
+            #region Q03-Specific targetValue
+            //Hashtable Fruits = new Hashtable();
+            //Fruits.Add("Key1", "Apple");
+            //Fruits.Add("Key2", "Banana");
+            //Fruits.Add("Key3", "Apple");
+            //TargetValue(Fruits,"Apple");
+            #endregion
+
+            #region Q05-DuplicatesInArray
+            int[] Numbers = { 2, 3, 2, 4, 4, };
+            CheckDuplicates(Numbers);
             #endregion
             #endregion
         }
