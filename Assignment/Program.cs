@@ -112,6 +112,18 @@ namespace Assignment
             }
             return missingNumbers;
         }
+        static  Hashtable Swapping(Hashtable table)
+        {
+            Hashtable result = new Hashtable();
+            if(table != null)
+            {
+                foreach (DictionaryEntry item in table)
+                {
+                    result.Add(item.Value, item.Key);
+                }
+            }
+            return result;
+        }
 
         static void Main(string[] args)
         {
@@ -183,19 +195,32 @@ namespace Assignment
             #endregion
 
             #region Q09-Unique Values
-            List<int> Ints = new List<int>();
-            HashSet<int> Numbers = new HashSet<int>();
-            Ints.Add(1);
-            Ints.Add(1);
-            Ints.Add(2);
-            foreach (int item in Ints)
+            //List<int> Ints = new List<int>();
+            //HashSet<int> Numbers = new HashSet<int>();
+            //Ints.Add(1);
+            //Ints.Add(1);
+            //Ints.Add(2);
+            //foreach (int item in Ints)
+            //{
+            //    Numbers.Add(item);
+            //}
+            //foreach (var item in Numbers)
+            //{
+            //    if (Ints is not null)
+            //        Console.WriteLine(item);
+            //}
+            #endregion
+
+            #region Q10-Keys and Values are swapped
+            Hashtable NoteBook = new Hashtable();
+            NoteBook.Add("1", "Sajeda");
+            NoteBook.Add("2", "Eman");
+            NoteBook.Add("3", "Malak");
+            NoteBook.Add("4", "Nada");
+            Hashtable NewNote = Swapping(NoteBook);
+            foreach (DictionaryEntry item in NewNote)
             {
-                Numbers.Add(item);
-            }
-            foreach (var item in Numbers)
-            {
-                if (Ints is not null)
-                    Console.WriteLine(item);
+                Console.WriteLine($"{item.Key} :: {item.Value}");
             }
             #endregion
             #endregion
