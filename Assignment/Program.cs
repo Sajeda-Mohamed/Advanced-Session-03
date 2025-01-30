@@ -24,7 +24,7 @@ namespace Assignment
         {
             string keyOfmax = null;
             int maxValue = int.MinValue;
-            if(Note != null)
+            if (Note != null)
             {
                 foreach (DictionaryEntry item in Note)
                 {
@@ -36,6 +36,14 @@ namespace Assignment
                 }
             }
             return keyOfmax;
+        }
+        static void TargetValue(Hashtable Hash,string target)
+        {
+            foreach (DictionaryEntry item in Hash)
+            {
+                if(item.Value == target)
+                    Console.WriteLine(item.Key);
+            }
         }
         static void Main(string[] args)
         {
@@ -54,11 +62,19 @@ namespace Assignment
             #endregion
 
             #region Q02-Highest Value
-            Hashtable NoteBook = new Hashtable();
-            NoteBook.Add("Sajeda", 88);
-            NoteBook.Add("Eman", 98);
-            NoteBook.Add("Ahlam", 99);
-            Console.WriteLine(FindHighestValue(NoteBook)); 
+            //Hashtable NoteBook = new Hashtable();
+            //NoteBook.Add("Sajeda", 88);
+            //NoteBook.Add("Eman", 98);
+            //NoteBook.Add("Ahlam", 99);
+            //Console.WriteLine(FindHighestValue(NoteBook));
+            #endregion
+
+            #region Specific targetValue
+            Hashtable Fruits = new Hashtable();
+            Fruits.Add("Key1", "Apple");
+            Fruits.Add("Key2", "Banana");
+            Fruits.Add("Key3", "Apple");
+            TargetValue(Fruits,"Apple");
             #endregion
             #endregion
         }
