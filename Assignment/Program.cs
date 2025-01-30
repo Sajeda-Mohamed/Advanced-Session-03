@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Linq;
 
 namespace Assignment
 {
@@ -100,10 +101,18 @@ namespace Assignment
             else
                 Console.WriteLine($"{name} already exists");
         }
-        public static int Compare(EmployeeDirectory? x, EmployeeDirectory? y)
+        static HashSet<int> FindMissingNums(int[] arr, int N)
         {
-            return x?.Id.CompareTo(y.Id) ?? (y is null ? 0 : -1);
+            HashSet<int> Original = new HashSet<int>();
+            HashSet<int> missingNumbers = new HashSet<int>();
+            for (int i = 1; i <= N; i++)
+            {
+                if (!Original.Contains(i))
+                    missingNumbers.Add(i);
+            }
+            return missingNumbers;
         }
+
         static void Main(string[] args)
         {
             #region Part1
@@ -154,13 +163,22 @@ namespace Assignment
             #endregion
 
             #region Q07-Employee Directory
-            SortedList<int, string> employeeDirectory = new SortedList<int, string>(new EmployeeComparerAsc());
-            employeeDirectory.Add(1, "Sajeda");
-            employeeDirectory.Add(3, "Dina");
-            employeeDirectory.Add(2, "Eman");
-            foreach (KeyValuePair<int, string> item in employeeDirectory)
+            //SortedList<int, string> employeeDirectory = new SortedList<int, string>(new EmployeeComparerAsc());
+            //employeeDirectory.Add(1, "Sajeda");
+            //employeeDirectory.Add(3, "Dina");
+            //employeeDirectory.Add(2, "Eman");
+            //foreach (KeyValuePair<int, string> item in employeeDirectory)
+            //{
+            //    Console.WriteLine($"{item.Key} :: {item.Value}");
+            //}
+            #endregion
+
+            #region Q08-Missing Numbers
+            int[] Numbers = { 1, 2, 4, 6, 7, 9 };
+            HashSet<int> Nums = FindMissingNums(Numbers,20);
+            foreach (int item in Nums)
             {
-                Console.WriteLine($"{item.Key} :: {item.Value}");
+                Console.WriteLine(item);
             }
             #endregion
             #endregion
