@@ -90,6 +90,20 @@ namespace Assignment
                     Console.WriteLine("Student not exists");
             }
         }
+        static void AddEmployee(SortedList<int, string> employees, int id, string name)
+        {
+            if (!employees.ContainsKey(id))
+            {
+                employees.Add(id, name);
+                Console.WriteLine($"{name} added");
+            }
+            else
+                Console.WriteLine($"{name} already exists");
+        }
+        public static int Compare(EmployeeDirectory? x, EmployeeDirectory? y)
+        {
+            return x?.Id.CompareTo(y.Id) ?? (y is null ? 0 : -1);
+        }
         static void Main(string[] args)
         {
             #region Part1
@@ -128,14 +142,25 @@ namespace Assignment
             #endregion
 
             #region Q06-SortedDictionary stores Students
-            SortedDictionary<int, string> Students = new SortedDictionary<int, string>();
-            AddStudent(Students, 101, "Sajeda");
-            AddStudent(Students, 102, "Eman");
-            AddStudent(Students, 103, "Nada");
-            RemoveStudents(Students, 101);
-            foreach (KeyValuePair<int, string> item in Students)
+            //SortedDictionary<int, string> Students = new SortedDictionary<int, string>();
+            //AddStudent(Students, 101, "Sajeda");
+            //AddStudent(Students, 102, "Eman");
+            //AddStudent(Students, 103, "Nada");
+            //RemoveStudents(Students, 101);
+            //foreach (KeyValuePair<int, string> item in Students)
+            //{
+            //    Console.WriteLine(GetStudent(Students, item.Key));
+            //}
+            #endregion
+
+            #region Q07-Employee Directory
+            SortedList<int, string> employeeDirectory = new SortedList<int, string>(new EmployeeComparerAsc());
+            employeeDirectory.Add(1, "Sajeda");
+            employeeDirectory.Add(3, "Dina");
+            employeeDirectory.Add(2, "Eman");
+            foreach (KeyValuePair<int, string> item in employeeDirectory)
             {
-                Console.WriteLine(GetStudent(Students, item.Key));
+                Console.WriteLine($"{item.Key} :: {item.Value}");
             }
             #endregion
             #endregion
