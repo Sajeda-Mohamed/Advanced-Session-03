@@ -19,7 +19,7 @@ namespace Demo
         public int GetHashCode(object obj)
         {
             string?str = obj as string;
-            return str?.ToLower().GetHashCode() ?? 0;
+            return str?.GetHashCode() ?? 0;
         }
     }
 }
