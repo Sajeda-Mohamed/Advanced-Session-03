@@ -63,6 +63,33 @@ namespace Assignment
                 }                   
             }
         }
+        static void AddStudent(SortedDictionary<int,string> students,int id,string name)
+        {
+            if(!students.ContainsKey(id))
+            {
+                students.Add(id, name);
+                Console.WriteLine($"{name} added");
+            }
+            else
+                Console.WriteLine($"{name} already exists");
+        }
+        static string GetStudent(SortedDictionary<int, string> students, int id)
+        {
+            return students.TryGetValue(id, out string name) ? name : "Not found";
+        }
+        static void RemoveStudents(SortedDictionary<int, string> students,int id)
+        {
+            foreach (var item in students)
+            {
+                if (item.Key == id)
+                {
+                    students.Remove(id);
+                    break;
+                }
+                else
+                    Console.WriteLine("Student not exists");
+            }
+        }
         static void Main(string[] args)
         {
             #region Part1
@@ -96,8 +123,20 @@ namespace Assignment
             #endregion
 
             #region Q05-DuplicatesInArray
-            int[] Numbers = { 2, 3, 2, 4, 4, };
-            CheckDuplicates(Numbers);
+            //int[] Numbers = { 2, 3, 2, 4, 4, };
+            //CheckDuplicates(Numbers);
+            #endregion
+
+            #region Q06-SortedDictionary stores Students
+            SortedDictionary<int, string> Students = new SortedDictionary<int, string>();
+            AddStudent(Students, 101, "Sajeda");
+            AddStudent(Students, 102, "Eman");
+            AddStudent(Students, 103, "Nada");
+            RemoveStudents(Students, 101);
+            foreach (KeyValuePair<int, string> item in Students)
+            {
+                Console.WriteLine(GetStudent(Students, item.Key));
+            }
             #endregion
             #endregion
         }
