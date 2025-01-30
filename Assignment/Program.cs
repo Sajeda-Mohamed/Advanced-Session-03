@@ -20,6 +20,23 @@ namespace Assignment
             }
             return frequency;
         }
+        static string FindHighestValue(Hashtable Note)
+        {
+            string keyOfmax = null;
+            int maxValue = int.MinValue;
+            if(Note != null)
+            {
+                foreach (DictionaryEntry item in Note)
+                {
+                    if ((int)item.Value > maxValue)
+                    {
+                        maxValue = (int)item.Value;
+                        keyOfmax = (string)item.Key;
+                    }
+                }
+            }
+            return keyOfmax;
+        }
         static void Main(string[] args)
         {
             #region Part1
@@ -28,12 +45,20 @@ namespace Assignment
 
             #region Part2
             #region Q01-Count Frequency of each Element
-            int[] arr = { 3, 1, 8, 3, 6, 6 };
-            Hashtable hashtable = CountFrequency(arr);
-            foreach (DictionaryEntry entry in hashtable)
-            {
-                Console.WriteLine($"Element: {entry.Key}, Frequency: {entry.Value}");
-            }
+            //int[] arr = { 3, 1, 8, 3, 6, 6 };
+            //Hashtable hashtable = CountFrequency(arr);
+            //foreach (DictionaryEntry entry in hashtable)
+            //{
+            //    Console.WriteLine($"Element: {entry.Key}, Frequency: {entry.Value}");
+            //}
+            #endregion
+
+            #region Q02-Highest Value
+            Hashtable NoteBook = new Hashtable();
+            NoteBook.Add("Sajeda", 88);
+            NoteBook.Add("Eman", 98);
+            NoteBook.Add("Ahlam", 99);
+            Console.WriteLine(FindHighestValue(NoteBook)); 
             #endregion
             #endregion
         }
