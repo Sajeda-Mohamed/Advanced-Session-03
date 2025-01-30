@@ -212,15 +212,33 @@ namespace Assignment
             #endregion
 
             #region Q10-Keys and Values are swapped
-            Hashtable NoteBook = new Hashtable();
-            NoteBook.Add("1", "Sajeda");
-            NoteBook.Add("2", "Eman");
-            NoteBook.Add("3", "Malak");
-            NoteBook.Add("4", "Nada");
-            Hashtable NewNote = Swapping(NoteBook);
-            foreach (DictionaryEntry item in NewNote)
+            //Hashtable NoteBook = new Hashtable();
+            //NoteBook.Add("1", "Sajeda");
+            //NoteBook.Add("2", "Eman");
+            //NoteBook.Add("3", "Malak");
+            //NoteBook.Add("4", "Nada");
+            //Hashtable NewNote = Swapping(NoteBook);
+            //foreach (DictionaryEntry item in NewNote)
+            //{
+            //    Console.WriteLine($"{item.Key} :: {item.Value}");
+            //}
+            #endregion
+
+            #region Q11-Union of 2 Sets
+            HashSet<int> UnionSet= new HashSet<int>();
+            int[] arr1 = { 1, 2, 3, 4, 5 };
+            int[] arr2 = { 3, 4, 5, 6, 7 };
+            foreach (int item in arr1)
             {
-                Console.WriteLine($"{item.Key} :: {item.Value}");
+                UnionSet.Add(item);
+            }
+            foreach (int item in arr2)
+            {
+                UnionSet.Add(item);
+            }
+            foreach (int item in UnionSet)
+            {
+                Console.WriteLine(item);
             }
             #endregion
             #endregion
